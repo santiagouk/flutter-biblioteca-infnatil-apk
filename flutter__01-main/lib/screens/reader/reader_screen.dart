@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_pdfviewer/pdfviewer.dart';
 import '../../core/theme/app_colors.dart';
-import '../../core/widgets/primary_button.dart';
 import '../../core/widgets/state_placeholders.dart';
 import '../../data/models/book_model.dart';
 import '../../data/services/book_service.dart';
