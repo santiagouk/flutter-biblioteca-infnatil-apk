@@ -1,0 +1,72 @@
+name: biblioteca_infantil_app
+description: "Biblioteca Infantil Virtual - Aplicación móvil de lectura para niños"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Iconografía
+  cupertino_icons: ^1.0.6
+
+  # Backend: Supabase (Auth, Base de datos, Storage)
+  supabase_flutter: ^2.5.6
+
+  # Gestión de estado
+  provider: ^6.1.2
+
+  # Enrutamiento centralizado
+  go_router: ^14.2.0
+
+  # Persistencia local (preferencias: tema claro/oscuro, sesión)
+  shared_preferences: ^2.2.3
+
+  # Animaciones suaves y microinteracciones
+  flutter_animate: ^4.5.0
+  lottie: ^3.1.2
+
+  # Carga y cacheo de imágenes de red (portadas de libros)
+  cached_network_image: ^3.3.1
+
+  # Descarga manual del PDF antes de pasarlo al visor (ver nota en
+  # reader_screen.dart): nos da el código de estado y el mensaje de
+  # error real si algo falla, en vez del mensaje genérico que da
+  # SfPdfViewer.network() internamente.
+  http: ^1.2.2
+  # Reemplaza a webview_flutter + Google Docs Viewer: ese enfoque no
+  # funciona en Flutter Web (webview_flutter no tiene implementación
+  # web sin el paquete adicional webview_flutter_web) y es poco fiable
+  # en general porque depende de un servicio externo de Google. Este
+  # paquete renderiza el PDF directamente (bytes descargados desde la
+  # URL pública de Storage) y sí soporta Web, Android e iOS.
+  syncfusion_flutter_pdfviewer: ">=25.1.35 <30.0.0"
+
+  # Selección de archivos (portadas, PDF) para el panel de administrador
+  file_picker: ^8.0.6
+  image_picker: ^1.1.2
+
+  # Utilidades
+  equatable: ^2.0.5
+  intl: ^0.19.0
+  google_fonts: ^6.2.1
+  flutter_svg: ^2.0.10+1
+  shimmer: ^3.0.0
+  fl_chart: ^0.68.0
+  uuid: ^4.4.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Nota: las tipografías Baloo 2 (títulos) y Nunito (texto de lectura)
+  # se cargan dinámicamente mediante el paquete google_fonts en
+  # lib/core/theme/app_text_theme.dart, por lo que no es necesario
+  # empaquetar archivos .ttf localmente.
